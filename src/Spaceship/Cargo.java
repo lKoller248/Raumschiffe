@@ -1,4 +1,4 @@
-package SpaceShip;
+package Spaceship;
 
 public class Cargo {
     private String name;
@@ -23,7 +23,7 @@ public class Cargo {
         this.count = count;
     }
 
-    public String toString() {
-        return this.name + ", Count: " + this.count;
+    public @Override String toString() {
+        return "Cargo: " + this.name + ", Count: " + this.count;
     }
 }
