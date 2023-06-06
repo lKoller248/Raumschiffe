@@ -21,28 +21,21 @@ public class Main {
         vulcan.showSpaceshipInfo();
         vulcan.showManifest();
 
-        romulan.shootPhotonTorpedo(vulcan);
-        romulan.shootPhotonTorpedo(vulcan);
-        romulan.shootPhotonTorpedo(vulcan);
+        klingon.shootPhotonTorpedo(romulan);
+        romulan.shootPhaserCannon(klingon);
+        vulcan.sendMessage("Violence is not logical.");
+        klingon.showSpaceshipInfo();
+        klingon.showManifest();
+        vulcan.sendRepairOrder(true, true, true, vulcan.getAndroids());
+        vulcan.reloadPhotonTorpedo(3);
+        klingon.shootPhotonTorpedo(romulan);
+        klingon.shootPhotonTorpedo(romulan);
+        klingon.showSpaceshipInfo();
+        klingon.showManifest();
+        romulan.showSpaceshipInfo();
+        romulan.showManifest();
+        vulcan.showSpaceshipInfo();
+        vulcan.showManifest();
         Spaceship.showLog();
-        vulcan.showSpaceshipInfo();
-
-        vulcan.removeCargo(new Cargo("Photon Torpedo", 1));
-        vulcan.showManifest();
-        vulcan.removeCargo(new Cargo("Photon Torpedo", 6));
-        vulcan.showManifest();
-        vulcan.addCargo(new Cargo("Photon Torpedo", 1));
-        vulcan.showManifest();
-        vulcan.reloadPhotonTorpedo(1);
-        vulcan.showManifest();
-        vulcan.reloadPhotonTorpedo(5);
-        vulcan.showManifest();
-        vulcan.addCargo(new Cargo("Photon Torpedo", 3));
-        vulcan.showManifest();
-        vulcan.reloadPhotonTorpedo(5);
-        vulcan.showManifest();
-
-        vulcan.sendRepairOrder(true, true, true, 7);
-        vulcan.showSpaceshipInfo();
     }
 }

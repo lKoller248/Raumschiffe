@@ -1,6 +1,5 @@
 package Spaceship;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -14,8 +13,8 @@ public class Spaceship {
     private double hullStrength;
     private int photonTorpedo;
     private int androids;
-    private List<Cargo> manifest = new ArrayList<>();
-    private static List<String> broadcastCommunicator = new ArrayList<>();
+    private final List<Cargo> manifest = new ArrayList<>();
+    private final static List<String> broadcastCommunicator = new ArrayList<>();
 
     public Spaceship() {}
     public Spaceship(String name, double powerSupply, double shields, double lifeSupport, double hullStrength, int photonTorpedo, int androids) {
@@ -156,6 +155,7 @@ public class Spaceship {
             System.out.println("No Photon Torpedos found!");
             this.sendMessage("-=*Click*=-");
         }
+        System.out.println();
     }
 
     public void sendRepairOrder(boolean powerSupply, boolean shields, boolean hullStrength, int androids) {
@@ -168,9 +168,9 @@ public class Spaceship {
 
         double repair = 0;
         if(powerSupply && shields && hullStrength) {
-            repair = (rnd * androids)/3;
+            repair = (rnd * androids)/3.;
         } else if((powerSupply && shields) || (powerSupply && hullStrength) || (shields && hullStrength)) {
-            repair = (rnd * androids)/2;
+            repair = (rnd * androids)/2.;
         } else if(powerSupply || shields || hullStrength) {
             repair = rnd * androids;
         }
@@ -202,9 +202,6 @@ public class Spaceship {
         broadcastCommunicator.add(this.name + ": " + msg);
     }
 
-    public static List<String> getLog() {
-        return broadcastCommunicator;
-    }
     public static void showLog() {
         for(String msg: broadcastCommunicator) {
             System.out.println(msg);
@@ -214,6 +211,7 @@ public class Spaceship {
 
     private void recordHit() {
         System.out.println(this.name + " was hit!");
+        System.out.println();
         if(this.shields > 50) {
             this.shields -= 50;
         } else if(this.shields > 0) {
